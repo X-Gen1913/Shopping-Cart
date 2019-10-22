@@ -1,0 +1,21 @@
+{% extends 'product/base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <div class="post">
+
+       
+        <h1>{{ product.name }}</h1>
+        <p>{{ product.details|linebreaksbr }}</p>
+	<p>price:{{product.price}}</p>
+	<p>seller:{{product.seller}}</p>
+      
+    </div>
+     <p><a href="{% url 'logout' %}">logout</a></p>
+    {% else %}
+       <p>You are not logged in</p>
+       <a href="{% url 'login' %}">login</a>
+{% endif %}
+
+{% endblock %}
+
