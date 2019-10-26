@@ -1,0 +1,21 @@
+{% extends 'product/base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+
+	{% for product in products %}
+	
+	<div class="col-sm-3">
+           <h3><a href="{% url 'product_detail' pk=product.pk %}">{{ product.title }}</a></h3>
+                <p><i>{{ product.details|linebreaksbr }}</i></p>
+                <p><strong>seller: {{ product.seller }}</strong></p>
+		<p>price:{{product.price}}</p>
+
+
+        </div>
+    {% endfor %}
+{% else %}
+       <p>You are not logged in</p>
+       <a href="{% url 'login' %}">login</a>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'product/base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <div class="post">
+
+       
+        <h1>{{ product.title }}</h1>
+        <p>{{ product.details|linebreaksbr }}</p>
+	<p>price:{{product.price}}</p>
+	<p>seller:{{product.seller}}</p>
+	<a href="{% url 'add_to_cart' pk=product.pk %}"><button>Add to cart</button></a>
+      
+    </div>
+    {% else %}
+       <p>You are not logged in</p>
+       <a href="{% url 'login' %}">login</a>
+{% endif %}
+
+{% endblock %}
+
