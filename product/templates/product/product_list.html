@@ -6,14 +6,18 @@
 	{% for product in products %}
 	
 	<div class="col-sm-3">
-           <h3><a href="{% url 'product_detail' pk=product.pk %}">{{ product.title }}</a></h3>
+	<h3><a href="{% url 'product_detail' pk=product.pk %}">{{ product.name }}</a></h3>
                 <p><i>{{ product.details|linebreaksbr }}</i></p>
                 <p><strong>seller: {{ product.seller }}</strong></p>
 		<p>price:{{product.price}}</p>
-
-
-        </div>
-    {% endfor %}
+		{% if object in current_order_products %}
+           		 <a href="{% url 'order_summary' %}" class="btn btn-warning">Go to Cart</a>
+       		 {% else %}
+           		 <a href="{% url 'add_to_cart' product.id %}" class="btn btn-warning">Add to Cart</a>
+       		 {% endif %}
+    </div>
+   {% endfor %}
+    <p><a href="{% url 'logout' %}">logout</a></p>
 {% else %}
        <p>You are not logged in</p>
        <a href="{% url 'login' %}">login</a>
