@@ -11,6 +11,10 @@
     <div class="page-header">
 	   <a href="{% url 'product_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
 	    <h1><a href="/">Shopping-Cart</a></h1>
+	    <p><a href="{% url 'order_summary'  %}" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-shopping-cart"></span> Cart
+        </a>
+      </p> 
     </div>
             {% block content %}
             {% endblock %}

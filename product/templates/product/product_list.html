@@ -7,19 +7,26 @@
 	
 	<div class="col-sm-3">
 	<h3><a href="{% url 'product_detail' pk=product.pk %}">{{ product.name }}</a></h3>
-                <p><i>{{ product.details|linebreaksbr }}</i></p>
-                <p><strong>seller: {{ product.seller }}</strong></p>
-		<p>price:{{product.price}}</p>
-		{% if object in current_order_products %}
+                <p class="details"><i>{{ product.details|linebreaksbr }}</i></p>
+                <p class="seller"><strong>seller: {{ product.seller }}</strong></p>
+		<p class="price">price:{{product.price}}</p>
+		{% if product in current_order_products %}
            		 <a href="{% url 'order_summary' %}" class="btn btn-warning">Go to Cart</a>
        		 {% else %}
            		 <a href="{% url 'add_to_cart' product.id %}" class="btn btn-warning">Add to Cart</a>
        		 {% endif %}
     </div>
    {% endfor %}
-    <p><a href="{% url 'logout' %}">logout</a></p>
+   <p>
+        <a href="{% url 'logout' %}" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-log-out"></span>Logout
+        </a>
+      </p> 
 {% else %}
        <p>You are not logged in</p>
-       <a href="{% url 'login' %}">login</a>
+       <a href="{% url 'login' %}" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-log-in"></span> Log in
+        </a>
+
 {% endif %}
 {% endblock %}
