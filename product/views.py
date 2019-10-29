@@ -26,7 +26,7 @@ def add_to_cart(request, **kwargs):
     order_item,status=OrderItem.objects.get_or_create(product=product)
     user_order,status=Order.objects.get_or_create(buyer=request.user)
     user_order.items.add(order_item)
-    return redirect('product_detail',pk=2)
+    return redirect('product_list')
 def get_pending_order(request):
     order=Order.objects.filter(buyer=request.user)
     if order.exists():
@@ -40,5 +40,5 @@ def delete_from_cart(request, item_id):
     item_to_delete = OrderItem.objects.filter(pk=item_id)
     if item_to_delete.exists():
         item_to_delete[0].delete()
-        messages.info(request, "Item has been deleted")
+        
     return redirect('order_summary')
