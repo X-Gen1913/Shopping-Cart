@@ -3,7 +3,7 @@
  <ul style="list-style-type:disc;">
   <li>Signup</li>
  <p>Sign up uses buitin Userauth libarary in django it takes username and password and send its primary checks</p>
-![Screenshot from 2019-10-30 20-11-48](https://user-images.githubusercontent.com/33775493/67868432-fe5de580-fb51-11e9-8160-535b522a9560.png)
+
 
  
  
