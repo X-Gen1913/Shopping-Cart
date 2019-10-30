@@ -5,7 +5,7 @@
  <ul style="list-style-type:disc;">
   <li>Signup</li>
  <p>Sign up uses buitin Userauth libarary in django it takes username and password and send its primary checks it csrf token for security </p>
-<img src="img/sceen1">
+<img src="img/sceen1.png">
 
  
  
