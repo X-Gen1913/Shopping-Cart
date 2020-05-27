@@ -33,7 +33,7 @@
         <td colspan=2>
           <strong class="pull-right">Order Total:</strong>
         </td>
-        
+
         <td colspan= 1>
           $<strong>{{ order.get_cart_total }}</strong>
         </td>
@@ -43,7 +43,7 @@
         <td colspan=1 >
           <a href="{% url 'product_list' %}" class="btn btn-warning pull-left">
             {% if order %}Continue Shopping{% else %}Add Items to Cart {% endif %}
-          </a> 
+          </a>
         </td>
         <td colspan=2>
 
@@ -52,9 +52,16 @@
         </td>
       </tr>
     </table>
-     
+
    </div>
  </section>
+ <form method="POST" action="#" class="post-form">
+  {% csrf_token %}
+  coordiantes:<br>
+  <input type="text" name="locatation" value="">
+  <br>
+  <input type="submit" value="Submit">
+  </form>
 {% endblock %}
 
 {% block scripts %}

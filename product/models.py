@@ -27,7 +27,6 @@ class Order(models.Model):
     buyer=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     items=models.ManyToManyField(OrderItem)
 
-
     def add(self):
         return self.items.all()
 
@@ -36,4 +35,3 @@ class Order(models.Model):
 
     def __str__(self):
         return self.buyer
-
